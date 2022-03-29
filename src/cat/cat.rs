@@ -44,7 +44,7 @@ fn read_from_file(ends:bool, number:bool, file_name: String) {
     let file = fs::File::open(file_name).unwrap();
     let lines = io::BufReader::new(file).lines();
     for line in lines {
-        let mut to_print = line.unwrap().trim().to_string();
+        let mut to_print = line.unwrap().to_string().replace("\n", "");
         if ends {
             to_print.push_str("$");
         }
@@ -62,7 +62,7 @@ fn read_from_stdin(ends: bool, number: bool) {
         // get input
         let mut input = String::new();
         _ = io::stdin().read_line(&mut input);
-        input = input.trim().to_string();
+        input = input.to_string().replace("\n", "");
 
         // process flags
         let mut to_print = input.clone();
