@@ -1,0 +1,1 @@
+figure out how to use clap derive to take in multiple positional arguments and iterate through them else use clap builder
